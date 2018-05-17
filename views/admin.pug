@@ -1,0 +1,205 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title Dashboard
+    meta(http-equiv='X-UA-Compatible', content='IE=Edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='theme-color', content='#fff')
+    meta(name='format-detection', content='telephone=no')
+    link(rel='stylesheet', media='all', href='admin/css/app.css')
+  body
+    // BEGIN content
+main.page
+  .container.is-fullhd
+    .columns
+      .column.column-aside.is-2
+        aside
+          .portrait
+            figure.image.is-64x64
+              img(src='admin/img/avatar_03.png', alt='avatar')
+            a(href='/logout')
+              i.fa.fa-sign-out(aria-hidden='true')
+              | logout
+          .tabs.tabs-aside.is-toggle
+            ul.nav
+              li.is-active.nav-element(data-tab-aside='4')
+                a.nav-element-link(href='#4')
+                  span.icon.is-large
+                    i.fa.fa-bar-chart
+                  span.icon-text Dashboard
+              li.nav-element(data-tab-aside='5')
+                a.nav-element-link(href='#5')
+                  span.icon.is-large
+                    i.fa.fa-file-o
+                  span.icon-text Reports
+              li.nav-element(data-tab-aside='6')
+                a.nav-element-link(href='#6')
+                  span.icon.is-large
+                    i.fa.fa-cog
+                  span.icon-text Settings
+      .column.column-main.is-10
+        #4.content-tab-center.show(data-tab='4')
+          header
+            .tabs.is-left.is-boxed.is-medium
+              ul
+                li.tab.is-active(data_tab='1')
+                  a(href='#tabs-1')
+                    span.icon.is-large
+                      i.fa.fa-home
+                    span Main
+                li#report.tab(data_tab='2')
+                  a(href='#tabs-2')
+                    span.icon.is-large
+                      i.fa.fa-calculator
+                    span Summary Report
+                li.tab(data_tab='3')
+                  a(href='#tabs-3')
+                    span.icon.is-large
+                      i.fa.fa-archive
+                    span Archiv
+          #1.tab-content.show
+            form.tab-first(action='', method='post')
+              span.user-id!=user._id
+              .field.is-horizontal
+                .field-label.is-normal
+                  label.label Choose a type operations:
+                .field-body
+                  .control
+                    label.direct-money
+                      input(type='radio', name='type', vale='up')
+                      img(src='admin/img/arrow-chart.svg', alt='loss money')
+                    label.direct-money
+                      input(type='radio', name='type', vale='down')
+                      img.img-direct(src='admin/img/loss.svg', alt='loss money')
+              .field.is-horizontal
+                .field-label.is-normal
+                  label.label Category
+                .field-body
+                  .field.is-narrow
+                    .control
+                      .select
+                        select(name='category')
+                          option(value='car') Авто
+                          option(value='travell') Путешествия
+                          option(value='food&drink') Еда и напитки
+                          option(value='family') Семейные и личные
+                          option(value='utilities') Коммунальыне услуги
+                          option(value='living') Проживание
+                  .field.is-narrow
+                    label.label Pick date
+                  .field.is-narrow
+                    .control
+                      input.input(type='text', name='date', placeholder='Date', data-toggle='datepicker')
+              .field.is-horizontal
+                .field-label.is-normal
+                  label.label Note(optional)
+                .field-body
+                  .control
+                    input.input(name='note', type='text', placeholder='Note here')
+              .field.is-horizontal.transaction-wrapper
+                p.control
+                  span.select
+                    select(name='currency')
+                      option(value='uah') UAH
+                      option(value='usd') $
+                      option(value='eur') €
+                p.control
+                  input.input(type='text', name='amount', placeholder='Amount of money')
+                p.control
+                  a#submit-data.button.is-info.is-focused(type='submit')
+                    | Add Transaction
+          #2.tab-content
+            .balance-account
+              .balance-tab.current-balance
+                span.balance-title Current Balance
+                span.balance-price.current-balance-price.has-text-success 1000
+              .balance-tab.total-balance
+                span.balance-title Total Period Change
+                span.balance-price.tot-change-price.has-text-success 1000
+              .balance-tab.total-expense
+                span.balance-title Total Period Expenses
+                span.balance-price.tot-expense-price.has-text-danger 100
+              .balance-tab.total-income
+                span.balance-title Total Period Income
+                span.balance-price.tot-income-price.has-text-success 100
+            table.table
+              thead
+                tr
+                  th Main category
+                  th.month-1 DEC 2016
+                  th.month-2 NOV 2016
+                  th.month-3 OCT 2016
+                  th.month-4 SEP 2016
+              tfoot
+                tr
+              tbody.table-report
+                tr
+                  td.category
+                    a(href='https://en.wikipedia.org/wiki/Leicester_City_F.C.', title='Leicester City F.C.') Leicester City
+                    strong (C)
+                  td 38
+                  td 23
+                  td 12
+                  td 36
+          #3.tab-content 3
+        #5.content-tab-center(data-tab='5')
+          canvas#myChart(width='770', height='385', style='display: block; width: 770px; height: 385px;')
+          canvas#myLineChart(width='770', height='385', style='display: block; width: 770px; height: 385px;')
+        #6.content-tab-center(data-tab='6')
+          .tab-third
+            .container
+              .columns.is-mobile.is-centered.settings-wrap
+                .column.is-half.is-narrow
+                  .field.has-text-centered
+                    h3.subtitle.is-5 General information
+                  .field
+                    p.control.has-icons-left.has-icons-right
+                      input.input(type='email', placeholder='Email')
+                      span.icon.is-small.is-left
+                        i.fa.fa-envelope
+                      span.icon.is-small.is-right
+                        i.fa.fa-check
+                  .field
+                    p.control.has-icons-left
+                      input.input(type='password', placeholder='Change password')
+                      span.icon.is-small.is-left
+                        i.fa.fa-lock
+                  .field
+                    p.control.has-icons-left
+                      input.input(type='password', placeholder='Submit password')
+                      span.icon.is-small.is-left
+                        i.fa.fa-lock
+                  a.button.is-info.is-outlined Update settings
+                  .field.has-text-centered
+                    h3.subtitle.is-5 Categories settings
+                  .field.is-grouped
+                    .control
+                      .select
+                        select
+                          option Icon
+                          option 1
+                    .control
+                      .select
+                        select
+                          option Color
+                          option 1
+                    .control
+                      input.input(type='email', placeholder='new category name')
+                    .control
+                      .select
+                        select
+                          option Type
+                          option 2
+                    .control
+                      a.button.is-info.is-outlined Create new category
+                  .field.is-flex.is-space-between
+                    span Category name
+                    span transaction name
+                    a.button.is-danger
+                      span.icon.is-small
+                        i.fa.fa-remove
+    // END content
+    // BEGIN scripts
+    script(type='text/javascript', src='admin/js/app.js')
+    // END scripts

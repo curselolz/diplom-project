@@ -10,20 +10,27 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
+var morgan = require("morgan");
+var cors = require("cors");
 
 mongoose.connect('mongodb://localhost/loginapp');
 var db = mongoose.connection;
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
+var dashboard = require('./routes/dashboard');
+
 
 // Init App
 var app = express();
 
 // View Engine
-app.set('views', path.join(__dirname, 'views'));
-app.engine('handlebars', exphbs({defaultLayout:'layout'}));
-app.set('view engine', 'handlebars');
+app.set("view engine", "pug");
+
+//log request
+app.use(morgan("combined"));
+
+//set Cross-origin resource sharing
+app.use(cors());
 
 // BodyParser Middleware
 app.use(bodyParser.json());
@@ -74,10 +81,8 @@ app.use(function (req, res, next) {
   next();
 });
 
-
-
 app.use('/', routes);
-app.use('/users', users);
+app.use('/dashboard', dashboard);
 
 // Set Port
 app.set('port', (process.env.PORT || 3000));

@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title Template
+    meta(http-equiv='X-UA-Compatible', content='IE=Edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='theme-color', content='#fff')
+    meta(name='format-detection', content='telephone=no')
+    link(rel='stylesheet', media='all', href='css/404.css')
+    section#not-found
+      #title 404 Error Page
+      .circles
+        p 
+        span!=message
+          | 404
+          br
+          small PAGE NOT FOUND
+        span.circle.big
+        span.circle.med
+        span.circle.small

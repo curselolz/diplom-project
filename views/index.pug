@@ -1,0 +1,165 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title Template
+    meta(http-equiv='X-UA-Compatible', content='IE=Edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='theme-color', content='#fff')
+    meta(name='format-detection', content='telephone=no')
+    link(rel='stylesheet', media='all', href='css/app.css')
+  body
+    // BEGIN content
+header.header
+  #modal.form-modal.lity-hide
+    form.header__form(action='/login', method='post')
+      h2.form-caption Sign Up
+      .form-element
+        input#name.form-input(type='text', name='username', required='')
+      .form-element
+        input#password-login.form-input.password(name='password', type='password', required='')
+        .form-element-label
+          label.form-label(for='password-login') Password
+        span Enter a password longer than 6 characters
+      .form-element
+        input#confirm-password-login.form-input.confirm-pass(name='password2', type='password', required='')
+        .form-element-label
+          label.form-label(for='confirm-password-login') Confirm password
+        span Your passwords do not match
+      p.form-element
+        input#login.form-submit(type='submit', value='Login')
+  #modal2.form.lity-hide
+    form.header__form(action='/register', method='post')
+      h2.form-caption Registration
+      .form-element
+        input#Email-register.form-input(type='email', name='email', required='')
+        .form-element-label
+          label.form-label(for='Email-register') Email
+      .form-element
+        input#fName.form-input(type='text', name='username', required='')
+        .form-element-label
+          label.form-label(for='fName') Full Name
+      .form-element
+        input.file-input(name='myFile', type='file')
+        label.form-label(for='myFile') Upload your image profile
+      .form-element
+        input#password-register.form-input.password(name='password', type='password', required='')
+        .form-element-label
+          label.form-label(for='password-register') Password
+        span Enter a password longer than 6 characters
+      .form-element
+        input#confirm-password-register.form-input.confirm-pass(name='password2', type='password', required='')
+        .form-element-label
+          label.form-label(for='confirm-password-register') Confirm password
+        span Your passwords do not match
+      p.form-element
+        input#register.form-submit(type='submit', value='Create My Account')
+  nav.header__nav
+    .header-logo
+      img.logo-img(src='img/Atlantix_Zen.png', alt='site logo')
+    .header-menu
+      ul.menu
+        li.menu-item-close
+          a#close.close(href='#') close
+        li.menu-item
+          a.uppercase-class(href='#') About
+        li.menu-item
+          a.uppercase-class(href='#') Blog
+        li.menu-item.border-item
+          a#login.menu-link.uppercase-class(href='#modal', data-lity='') Login
+          a#register.menu-link.uppercase-class(data-lity='', href='#modal2') Register
+    button.header-button-nav
+      span
+      span
+      span
+      span
+  .header__content
+    .header-container
+      p.header-text.uppercase-class
+        | A daily basis task
+        br
+        |  made simple!
+      p.bottom-text Make in a few clicks what usually takes hours
+      button.header-learn-btn.uppercase-class learn more
+      button.header-try-btn.uppercase-class try it for free
+main.value
+  .value__head Value you are getting for your money
+  .value__grid
+    .value-item
+      .value-img
+        img.briefcase(src='img/briefcase.jpg', alt='setup')
+      .value-text
+        p
+          b Simple setup
+        p.sub
+          | Lorem ipsum aliquam erat volutpat. Curabitur ullamcorper nulla ut porttitor scelerisque. Pellentesque aliquam.
+    .value-item
+      .value-img
+        img.briefcase(src='img/globe.jpg', alt='globe')
+      .value-text
+        p
+          b Another cool feature
+        p.sub
+          | Lorem ipsum aliquam erat volutpat. Curabitur ullamcorper nulla ut porttitor scelerisque. Pellentesque aliquam.
+    .value-item
+      .value-img
+        img.briefcase(src='img/interstate.jpg', alt='interstate')
+      .value-text
+        p
+          b Secure date
+        p.sub
+          | Lorem ipsum aliquam erat volutpat. Curabitur ullamcorper nulla ut porttitor scelerisque. Pellentesque aliquam.
+    .value-item
+      .value-img
+        img.briefcase(src='img/recycle.jpg', alt='recycle')
+      .value-text
+        p
+          b Recycle date
+        p.sub
+          | Lorem ipsum aliquam erat volutpat. Curabitur ullamcorper nulla ut porttitor scelerisque. Pellentesque aliquam.
+    .value-item
+      .value-img
+        img.briefcase(src='img/settings.jpg', alt='settings')
+      .value-text
+        p
+          b Super castomizable
+        p.sub
+          | Lorem ipsum aliquam erat volutpat. Curabitur ullamcorper nulla ut porttitor scelerisque. Pellentesque aliquam.
+    .value-item
+      .value-img
+        img.briefcase(src='img/award-winning-icon.png', alt='award winning')
+      .value-text
+        p
+          b Super castomizable
+        p.sub
+          | Lorem ipsum aliquam erat volutpat. Curabitur ullamcorper nulla ut porttitor scelerisque. Pellentesque aliquam.
+.video
+  .video__content
+    h1.video-caption.uppercase-class Quick yet concise video demonstration
+    p.video-sub-text  lorem ipsum
+    a.video-play-link(href='#')
+      img(src='img/Play-btn-icon.png', alt='play btn')
+.trial
+  .trial__head
+    h1.trial-caption Start your free 14 days trial,no risk!
+    p.trial-sub-text No credia card required. Upgrade,downgrade or cancel anytime.
+  .trial__content
+    .trial__contact
+      input.contact-input(type='text', placeholder='Enter desired username..')
+      a.contact-button.uppercase-class(href='#modal', data-lity='') sign up now
+    .trial__users
+      p
+        b 70,000+ happy users so far!
+footer.footer
+  .footer__content
+    ul.footer-menu
+      li
+        a(href='#') home
+      li
+        a(href='#') about
+      li
+        a(href='#') help
+    // END content
+    // BEGIN scripts
+    script(type='text/javascript', src='js/app.js')
+    // END scripts
