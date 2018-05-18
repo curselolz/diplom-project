@@ -13,7 +13,8 @@ var mongoose = require('mongoose');
 var morgan = require("morgan");
 var cors = require("cors");
 
-mongoose.connect('mongodb://localhost/loginapp');
+//mongoose.connect('mongodb://localhost/loginapp');
+mongoose.connect('mongodb://heroku_m6zrfwx3:i8ts5lctrrbtk107usvj3jl7ko@ds053708.mlab.com:53708/heroku_m6zrfwx3');
 var db = mongoose.connection;
 
 var routes = require('./routes/index');
