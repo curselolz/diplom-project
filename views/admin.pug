@@ -28,7 +28,7 @@ main.page
                   span.icon.is-large
                     i.fa.fa-bar-chart
                   span.icon-text Dashboard
-              li.nav-element(data-tab-aside='5')
+              li.nav-element.chart-nav(data-tab-aside='5')
                 a.nav-element-link(href='#5')
                   span.icon.is-large
                     i.fa.fa-file-o
@@ -62,18 +62,18 @@ main.page
             form.tab-first(action='', method='post')
               span.user-id!=user._id
               .field.is-horizontal
-                .field-label.is-normal
+                .field-label.is-normal.has-text-left
                   label.label Choose a type operations:
-                .field-body
+                .field-body.has-text-centered
                   .control
                     label.direct-money
-                      input(type='radio', name='type', vale='up')
+                      input(type='radio', name='type', vale='up', checked='')
                       img(src='admin/img/arrow-chart.svg', alt='loss money')
                     label.direct-money
                       input(type='radio', name='type', vale='down')
                       img.img-direct(src='admin/img/loss.svg', alt='loss money')
               .field.is-horizontal
-                .field-label.is-normal
+                .field-label.category-label.is-normal.has-text-left
                   label.label Category
                 .field-body
                   .field.is-narrow
@@ -90,9 +90,9 @@ main.page
                     label.label Pick date
                   .field.is-narrow
                     .control
-                      input.input(type='text', name='date', placeholder='Date', data-toggle='datepicker')
+                      input.input(type='text', name='date', placeholder='Date', data-toggle='datepicker', required='')
               .field.is-horizontal
-                .field-label.is-normal
+                .field-label.is-normal.has-text-left
                   label.label Note(optional)
                 .field-body
                   .control
@@ -105,7 +105,7 @@ main.page
                       option(value='usd') $
                       option(value='eur') €
                 p.control
-                  input.input(type='text', name='amount', placeholder='Amount of money')
+                  input.input(type='text', name='amount', placeholder='Amount of money', required='')
                 p.control
                   a#submit-data.button.is-info.is-focused(type='submit')
                     | Add Transaction
@@ -113,16 +113,16 @@ main.page
             .balance-account
               .balance-tab.current-balance
                 span.balance-title Current Balance
-                span.balance-price.current-balance-price.has-text-success 1000
+                span.balance-price.current-balance-price.has-text-success 0
               .balance-tab.total-balance
                 span.balance-title Total Period Change
-                span.balance-price.tot-change-price.has-text-success 1000
+                span.balance-price.tot-change-price.has-text-success 0
               .balance-tab.total-expense
                 span.balance-title Total Period Expenses
-                span.balance-price.tot-expense-price.has-text-danger 100
+                span.balance-price.tot-expense-price.has-text-danger 0
               .balance-tab.total-income
                 span.balance-title Total Period Income
-                span.balance-price.tot-income-price.has-text-success 100
+                span.balance-price.tot-income-price.has-text-success 0
             table.table
               thead
                 tr
