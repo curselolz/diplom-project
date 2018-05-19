@@ -27,6 +27,7 @@
     "passport": "*",
     "passport-http": "*",
     "passport-local": "*",
-    "pug": "^2.0.3"
+    "pug": "^2.0.3",
+    "toastr": "^2.1.4"
   }
 }

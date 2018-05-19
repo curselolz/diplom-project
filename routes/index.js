@@ -155,19 +155,16 @@ router.post("/dashboard/data", (req, res) => {
 		currency: currency,
 		amount: amount
 	});
-	console.log(data);
 	account.insertData(data, function (err, data) {
-		if (err) throw err;
+		res.send(data);
 	});
 });
 
 router.post("/dashboard/select", (req, res) => {
-	console.log("get select request");
 	var userId = req.body.id;
-	console.log(`userID ${userId}`);
 	var items = account.selectData(userId,function (result) {
-		console.log(result);
 		res.send(result);
 	});
 });
+
 module.exports = router;

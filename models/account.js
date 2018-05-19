@@ -30,7 +30,15 @@ var accountScheme = new Schema({
 var account = (module.exports = mongoose.model("account", accountScheme));
 
 module.exports.insertData = function (newData, callback) {
-  db.collection("account").insert(newData);
+  db.collection("account").insertOne(newData, function(err, response) {
+    if (err) {
+      console.log(err);
+     } else {
+      console.log("insert is ok");
+      callback(response);
+    }
+  });
+
 };
 
 module.exports.selectData = function (userId,callback) {
