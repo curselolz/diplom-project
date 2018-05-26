@@ -27,17 +27,36 @@ module.exports.createUser = function(newUser, callback){
 	});
 }
 
-module.exports.getUserByUsername = function(username, callback){
-	console.log(username);
+module.exports.getUserByUsername = function(username, callback) {
 	var query = {username: username};
 	User.findOne(query, callback);
 }
 
-module.exports.getUserById = function(id, callback){
+module.exports.getUserById = function(id, callback) {
 	User.findById(id, callback);
 }
 
-module.exports.comparePassword = function(candidatePassword, hash, callback){
+module.exports.comparePassword = function(candidatePassword, hash, callback) {
+	bcrypt.compare(candidatePassword, hash, function(err, isMatch) {
+    	if(err) throw err;
+    	callback(null, isMatch);
+	});
+}
+
+module.exports.changeEmail = function(query,candidateEmail,callback) {
+	User.findOneAndUpdate(query, candidateEmail, function(
+    err,
+    doc
+  ) {
+    if (err) {
+			console.log(err);
+		} else {
+			callback(doc);
+		}   
+  });
+}
+ 
+module.exports.changePassword = function(candidatePassword,newPassword, hash, callback) {
 	bcrypt.compare(candidatePassword, hash, function(err, isMatch) {
     	if(err) throw err;
     	callback(null, isMatch);

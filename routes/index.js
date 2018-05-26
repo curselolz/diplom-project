@@ -120,7 +120,7 @@ router.post(
   }),
   function(req, res) {
 		var user = req.user;
-		res.render("/admin", { user: user});
+		res.render("/admin", {user: user});
   }
 );
 
@@ -131,8 +131,7 @@ router.get('/logout', function (req, res) {
 
 	res.redirect('/');
 });
-router.get("/dashboard",ensureAuthenticated, (req, res) => {
-	console.log("get dashboard route");
+router.get("/dashboard", ensureAuthenticated, (req, res) => {
 	res.render("admin");
 });
 
@@ -165,6 +164,21 @@ router.post("/dashboard/select", (req, res) => {
 	var items = account.selectData(userId,function (result) {
 		res.send(result);
 	});
+});
+
+router.post("/dashboard/changeEmail", (req,res) => {
+	console.log("change email route");
+	let userID = req.body.id;
+	let emailToChange = { "email": req.body.email};
+	let query = {"_id":userID};
+	User.changeEmail(query, emailToChange, function(result) {
+    res.send(result);
+  });
+});
+
+router.post("/dashboard/changePass", (req,res) => {
+
+
 });
 
 module.exports = router;
