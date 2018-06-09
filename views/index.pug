@@ -16,6 +16,8 @@ header.header
       h2.form-caption Sign Up
       .form-element
         input#name.form-input(type='text', name='username', required='')
+        .form-element-label
+        label.form-label(for='password-login') Login
       .form-element
         input#password-login.form-input.password(name='password', type='password', required='')
         .form-element-label
@@ -38,7 +40,7 @@ header.header
       .form-element
         input#fName.form-input(type='text', name='username', required='')
         .form-element-label
-          label.form-label(for='fName') Full Name
+          label.form-label(for='fName') Login
       .form-element
         input.file-input(name='myFile', type='file')
         label.form-label(for='myFile') Upload your image profile
