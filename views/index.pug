@@ -17,19 +17,19 @@ header.header
       .form-element
         input#name.form-input(type='text', name='username', required='')
         .form-element-label
-          label.form-label(for='password-login') Login
+          label.form-label(for='Email-login') Login
       .form-element
         input#password-login.form-input.password(name='password', type='password', required='')
         .form-element-label
           label.form-label(for='password-login') Password
         span Enter a password longer than 6 characters
       .form-element
-        input#confirm-password-login.form-input.confirm-pass(name='password2', type='password', required='')
+        input#confirm-password-login.form-input.confirm-pass(name='confirm', type='password', required='')
         .form-element-label
           label.form-label(for='confirm-password-login') Confirm password
         span Your passwords do not match
       p.form-element
-        input#login.form-submit(type='submit', value='Login')
+        input#Login.form-submit(type='submit', value='Login')
   #modal2.form.lity-hide
     form.header__form(action='/register', method='post')
       h2.form-caption Registration
@@ -40,7 +40,7 @@ header.header
       .form-element
         input#fName.form-input(type='text', name='username', required='')
         .form-element-label
-          label.form-label(for='fName') Login
+          label.form-label(for='username') Login
       .form-element
         input.file-input(name='myFile', type='file')
         label.form-label(for='myFile') Upload your image profile
@@ -50,7 +50,7 @@ header.header
           label.form-label(for='password-register') Password
         span Enter a password longer than 6 characters
       .form-element
-        input#confirm-password-register.form-input.confirm-pass(name='password2', type='password', required='')
+        input#confirm-password-register.form-input.confirm-pass(name='confirm', type='password', required='')
         .form-element-label
           label.form-label(for='confirm-password-register') Confirm password
         span Your passwords do not match
@@ -61,6 +61,10 @@ header.header
       img.logo-img(src='img/Atlantix_Zen.png', alt='site logo')
     .header-menu
       ul.menu
+        li.menu-item 
+          if user 
+            span Hello,
+            span!=user
         li.menu-item-close
           a#close.close(href='#') close
         li.menu-item
@@ -69,6 +73,10 @@ header.header
           a.uppercase-class(href='#') Blog
         li.menu-item.border-item
           a#login.menu-link.uppercase-class(href='#modal', data-lity='') Login
+        if user
+
+        else
+        li.menu-item.border-item
           a#register.menu-link.uppercase-class(data-lity='', href='#modal2') Register
     button.header-button-nav
       span
@@ -78,7 +86,7 @@ header.header
   .header__content
     .header-container
       p.header-text.uppercase-class
-        | A daily basis task
+        | A daily basis task 
         br
         |  made simple!
       p.bottom-text Make in a few clicks what usually takes hours
